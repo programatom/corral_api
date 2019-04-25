@@ -13,11 +13,14 @@ class RemateController extends Controller
 {
     public function active_remate(){
 
-      $remate = Remate::where("activo", 1)->get()[0];
-      $hembras = $remate->hembras()->get();
-      $toros = $remate->toros()->get();
-      $remate->toros = $toros;
-      $remate->hembras = $hembras;
+      $remate = Remate::where("activo", 1)->get()->first();
+      if($remate){
+
+        $hembras = $remate->hembras()->get();
+        $toros = $remate->toros()->get();
+        $remate->toros = $toros;
+        $remate->hembras = $hembras;
+      }
 
       return response()->json([
         "status" => "success",
@@ -93,7 +96,7 @@ class RemateController extends Controller
         $request["activo"] = 1;
       }
       $remate->update($request);
-      return back()->with("success" , "Se actualizó el remate Nº ".$remate->id." con éxito");
+      return back()->with("remate_guardado" , "Se actualizó el remate Nº ".$remate->id." con éxito");
 
     }
 
@@ -177,6 +180,11 @@ class RemateController extends Controller
       }
 
       return redirect(url()->previous().'#extension');
+    }
+
+    public function destroy($id){
+      Remate::where("id", $id)->delete();
+      return redirect( "/remate" )->with("success", "Se borró el remate con éxito");
     }
 
 

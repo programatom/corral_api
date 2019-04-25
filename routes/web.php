@@ -32,4 +32,6 @@ Route::post("remate_extension_update","RemateController@remate_extension_update"
 Route::post("remate_extension_delete","RemateController@remate_extension_delete");
 Route::post("login","AuthController@login");
 
+
+//NOTA ALTA REMOVER LA RUTA REGISTER DE ESTA CLASE
 Auth::routes();

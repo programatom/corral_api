@@ -3,7 +3,7 @@
 
 @section("content")
 
-<a href="/remate" class="btn btn-primary btn-block"><h3>Volver</h3></a>
+<a href="/remate" class="btn btn-primary btn-block mb-3 mt-3"><h3>Volver</h3></a>
 <div class="row">
   <div class="col-12 col-lg-12" style="text-align:center">
     <div class="card" style="display:inline-block">

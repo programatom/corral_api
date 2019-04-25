@@ -58,7 +58,8 @@
             </div>
             <div class="form-group">
               <label>descripcion</label>
-              <textarea type="text" name="descripcion" class="form-control textarea">{{ $toro->descripcion }}</textarea>
+              <textarea type="text" name="descripcion" class="form-control textarea" aria-aria-describedby="descripcion">{{ $toro->descripcion }}</textarea>
+              <small id="descripcion" class="form-text text-muted">Ingresar un ≈ para separar titulo de texto</small>
             </div>
             <div class="form-group">
               <label>padre</label>
@@ -320,6 +321,9 @@
 </div>
 <div class="row">
   <div class="col-12 col-lg-12">
+    <a name="imagen_principal" style="visibility:hidden;"></a>
+    <a name="video" style="visibility:hidden;"></a>
+
     <div class="card">
       <div class="card-body" style="text-align:center">
         <h3 class="jumbotron">Imagen principal y video</h3>

@@ -46,7 +46,8 @@
             </div>
             <div class="form-group">
               <label>descripcion</label>
-              <textarea type="text" name="descripcion" value="{{old('descripcion')}}" class="form-control textarea"></textarea>
+              <textarea type="text" name="descripcion" class="form-control textarea" aria-aria-describedby="descripcion">{{old('descripcion')}}</textarea>
+              <small id="descripcion" class="form-text text-muted">Ingresar un ≈ para separar titulo de texto</small>
             </div>
             <div class="form-group">
               <label>padre</label>

@@ -14,9 +14,9 @@
    </div>
    @endif
 
-   @if(session('finalizar_remate'))
+   @if(session('remate_guardado'))
    <div class="alert alert-success">
-     {{session('finalizar_remate')}}
+     {{session('remate_guardado')}}
    </div>
    @endif
 
@@ -95,7 +95,7 @@
                   <label class="form-check-label" for="exampleCheck1">Activo</label>
                 </div>
                </div>
-               <button class="btn btn-success btn-block">
+               <button type="submit" class="btn btn-success btn-block">
                  <h4>Guardar remate</h4>
                </button>
              </div>
@@ -121,7 +121,7 @@
 
                  <input type="hidden" name="session" value="fotos_toros">
 
-                 <input type="hidden" name="session_msg" value="Se cargaron las imagenes de los toros con éxito!">
+                 <input type="hidden" name="session_msg" value="Se cargó la imagen del toro con éxito!">
 
                  <div class="input-group control-group increment2" >
                    <input type="file" name="filename[]" class="form-control">
@@ -168,7 +168,7 @@
 
                  <input type="hidden" name="session" value="fotos_hembras">
 
-                 <input type="hidden" name="session_msg" value="Se cargaron las imagenes de las hembras con éxito!">
+                 <input type="hidden" name="session_msg" value="Se cargó la imagen de la hembra con éxito!">
 
                  <div class="input-group control-group increment2" >
                    <input type="file" name="filename[]" class="form-control">
@@ -341,6 +341,25 @@
         </div>
       </div>
     </div>
-
   </div>
+
+  <form class="delete" action="/remate/{{$remate->id}}" method="POST">
+    @csrf
+    {{ method_field("DELETE")}}
+
+    <div class="row">
+      <div class="col-12 col-lg-12">
+        <button class="btn btn-block btn-danger" name="button">
+          <h3>Eliminar remate</h3>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <script>
+      $(".delete").on("submit", function(){
+          return confirm("Seguro desea eliminar este remate?");
+      });
+  </script>
+
 @endsection
