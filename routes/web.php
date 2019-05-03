@@ -11,6 +11,9 @@ Route::post("generar_array_objs_toros", "RemateController@generar_array_objs_tor
 Route::post("generar_array_objs_hembras", "RemateController@generar_array_objs_hembras");
 */
 
+//NOTA FALTA REMOVER LA RUTA REGISTER DE ESTA CLASE
+Auth::routes();
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -24,6 +27,7 @@ Route::post("delete_photo", "FileUploadController@delete_photo");
 Route::get("index", function(){
   return view("index");
 })->middleware('auth');
+
 Route::resource("toros" ,"ToroController")->middleware('auth');
 Route::resource("remate" ,"RemateController")->middleware('auth');
 
@@ -31,7 +35,3 @@ Route::post("new_remate_extension_store","RemateController@new_remate_extension_
 Route::post("remate_extension_update","RemateController@remate_extension_update");
 Route::post("remate_extension_delete","RemateController@remate_extension_delete");
 Route::post("login","AuthController@login");
-
-
-//NOTA ALTA REMOVER LA RUTA REGISTER DE ESTA CLASE
-Auth::routes();

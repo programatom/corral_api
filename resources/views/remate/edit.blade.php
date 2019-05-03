@@ -321,16 +321,30 @@
 
 
   </div>
+  <a name="video" style="visibility: hidden"></a>
+
   <div class="row">
     <div class="col-12 col-lg-6">
       <div class="card">
         <div class="card-body">
           <h3 class="jumbotron">Video</h3>
-          <form method="post" action="{{url('remate_video')}}" enctype="multipart/form-data">
+          @if (session('video'))
+          <div class="row">
+            <div class="col-12 col-lg-12">
+              <div class="alert alert-success">
+                {{ session('video') }}
+              </div>
+            </div>
+          </div>
+          @endif
+          <input type="hidden" name="session" value="video">
+          <input type="hidden" name="session_msg" value="Se cargó el toro con éxito">
+          <input type="hidden" name="path" value="{{'remates/'.'remate_'.$remate->id.'/video'}}">
+          <form method="post" action="{{url('upload_photo')}}" enctype="multipart/form-data">
             {{csrf_field()}}
 
             <div class="input-group control-group" >
-              <input type="file" name="video" class="form-control">
+              <input type="file" name="filename[]" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-primary" style="margin-top:10px">Cargar video</button>
