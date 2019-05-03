@@ -348,6 +348,8 @@
                   <input type="hidden" name="session" value="imagen_principal">
 
                   <input type="hidden" name="session_msg" value="Se cargó la imagen con principal éxito">
+                  <input type="hidden" name="clean_dir" value="1">
+
 
                   <div class="form-group control-group" >
                     <input type="file" name="filename[]" class="form-control">
@@ -379,6 +381,7 @@
                   <input type="hidden" name="session" value="video">
 
                   <input type="hidden" name="session_msg" value="Se cargó el video con éxito">
+                  <input type="hidden" name="clean_dir" value="1">
 
                   <div class="form-group control-group" >
                     <input type="file" name="filename[]" class="form-control">

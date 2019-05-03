@@ -337,12 +337,14 @@
             </div>
           </div>
           @endif
-          <input type="hidden" name="session" value="video">
-          <input type="hidden" name="session_msg" value="Se cargó el toro con éxito">
-          <input type="hidden" name="path" value="{{'remates/'.'remate_'.$remate->id.'/video'}}">
+
           <form method="post" action="{{url('upload_photo')}}" enctype="multipart/form-data">
             {{csrf_field()}}
-
+            <input type="hidden" name="session" value="video">
+            <input type="hidden" name="session_msg" value="Se cargó el video con éxito">
+            <input type="hidden" name="path" value="{{'remates/'.'remate_'.$remate->id.'/video'}}">
+            <input type="hidden" name="clean_dir" value="1">
+            
             <div class="input-group control-group" >
               <input type="file" name="filename[]" class="form-control">
             </div>

@@ -93,6 +93,11 @@ class FileUploadController extends Controller
     $path = $request->path;
     $path = storage_path('app/public/'.$path);
     $this->directory_logic($path);
+
+    if(isset($request->clean_dir)){
+      $this->eliminateAllFilesInDirectory($path);
+    }
+
     return $this->store($path, $request, $request->session, $request->session_msg);
 
   }
