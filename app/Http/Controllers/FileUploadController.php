@@ -49,14 +49,21 @@ class FileUploadController extends Controller
 
   {
 
-      $this->validate($request, [
+      if($session_key == "video"){
+        $this->validate($request, [
+                'filename' => 'required|mimes:mp4,mov|max:20000',
+        ]);
+      }else{
+        $this->validate($request, [
 
-              'filename' => 'required',
-              'filename.*' => 'mimes:jpeg,png,jpg,gif,svg,mp4,mov|max:20000'
+          'filename' => 'required',
+          'filename.*' => 'mimes:jpeg,png,jpg,gif,svg,mp4,mov|max:20000'
 
-      ],[
-        "required" => "Debe ingresar un archivo"
-      ]);
+        ],[
+          "required" => "Debe ingresar un archivo"
+        ]);
+      }
+
 
       if($request->hasfile('filename'))
        {

@@ -15,8 +15,8 @@ Route::post("generar_array_objs_hembras", "RemateController@generar_array_objs_h
 Auth::routes();
 
 Route::get('/', function () {
-    return view('auth.login');
-});
+    return view('index');
+})->middleware('auth');;
 
 Route::post("upload_photo", "FileUploadController@upload_photo");
 Route::post("delete_photo", "FileUploadController@delete_photo");
@@ -34,4 +34,3 @@ Route::resource("remate" ,"RemateController")->middleware('auth');
 Route::post("new_remate_extension_store","RemateController@new_remate_extension_store");
 Route::post("remate_extension_update","RemateController@remate_extension_update");
 Route::post("remate_extension_delete","RemateController@remate_extension_delete");
-Route::post("login","AuthController@login");

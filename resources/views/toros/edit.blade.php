@@ -419,28 +419,4 @@
     });
 </script>
 
-<script type="text/javascript">
- $(document).ready(function() {
-   $(".btn-success").click(function(){
-       var html = $(".clone").html();
-       $(".increment").after(html);
-   });
-   $("body").on("click",".btn-danger",function(){
-       $(this).parents(".control-group").remove();
-   });
-
-   $(".custombtn").click(function(){
-       var html = $(".clone2").html();
-       $(".increment2").after(html);
-   });
-   $("body").on("click",".btn-danger",function(){
-       $(this).parents(".control-group").remove();
-   });
-
-   $(".custombtn3").click(function(){
-       var html = $(".clone3").html();
-       $(".increment3").after(html);
-   });
- });
-</script>
 @endsection
